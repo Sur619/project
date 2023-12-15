@@ -4,7 +4,6 @@ from django.urls import reverse
 from django.template.loader import render_to_string
 from django.template.defaultfilters import slugify
 
-
 menu = [
     {'title': 'О сайте', 'url_name': 'about'},
     {'title': 'Добавить статью', 'url_name': 'add_page'},
@@ -18,7 +17,8 @@ data_db = [
     {"id": 3, 'title': 'Джулия Робертс', 'content': 'Биография Джулии Робертс', 'is_published': True},
 ]
 
-def index(request): # HttpRequest
+
+def index(request):  # HttpRequest
 
     data = {
         'title': 'Главная страница',
@@ -29,17 +29,16 @@ def index(request): # HttpRequest
 
 
 def about(request):
-    return render(request, 'women.about.html', {'title': 'О сайте', 'menu': menu})
+    return render(request, 'women.aboutgit remote add origin https://github.com/Sur619/project.git.html',
+                  {'title': 'О сайте', 'menu': menu})
+
 
 def show_post(request, post_id):
-    return  HttpResponse(f"Отображение статьи с id = {post_id}")
+    return HttpResponse(f"Отображение статьи с id = {post_id}")
 
 
 def page_not_found(request, exception):
     return HttpResponseNotFound("<h1>Страница не найдена</h1>")
-
-
-
 
 
 def add_page(request):
@@ -48,6 +47,7 @@ def add_page(request):
 
 def contact(request):
     return HttpResponse("Обратная связь")
+
 
 def login(request):
     return HttpResponse("Авторизация")
